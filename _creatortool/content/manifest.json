@@ -1,0 +1,26 @@
+{
+	"version": "1.0",
+	"id": "",
+	"name": "Custom Suit Loader Reference Suits",
+	"description": "",
+	"authors": [],
+	"frameworkVersion": "2.10.1",
+	"blobsFolders": [
+		"blobs"
+	],
+	"contentFolders": [
+		
+	],
+	"localisation": {
+		"english": {}
+	},
+	"scripts": [
+		"sdk/deploySDK.ts"
+	],
+	"requirements": [
+		"piepieonline.CustomSuitLoader"
+	],
+	"loadAfter": [
+		"piepieonline.CustomSuitLoader"
+	]
+}

@@ -1,0 +1,95 @@
+{
+	"version": "1.0.0",
+	"id": "piepieonline.CustomSuitLoader",
+	"name": "Custom Suit Loader",
+	"description": "Enables custom suits to be used without replacing existing suits (Works both Online and with Peacock).",
+	"authors": [
+		"Piepieonline"
+	],
+	"frameworkVersion": "2.11.1",
+	"localisation": {
+		"english": {
+			"UI_ITEM_SUBTYPE_CUSTOM": "Custom",
+			"UI_ITEM_SUBTYPE_IN_PLURAL_CUSTOM": "Custom"
+		}
+	},
+	"contentFolders": ["content/content"],
+	"blobsFolders": ["blobs"],
+	"scripts": [
+        "sdk/clearCustomSuits.ts",
+        "sdk/deploySDK.ts"
+    ],
+	"options": [
+		{
+			"name": "Disable dynamic resources",
+			"tooltip": "Disable dynamic resources - This will fix suit images online, but may reintroduce bugs that IO have previously fixed",
+			"type": "checkbox",
+			"enabledByDefault": false,
+			"thumbs": ["ConsoleCmd OnlineResources_Disable 1"]
+		},
+		{
+			"name": "Skydiving Suit (ModSDKContent)",
+			"tooltip": "Enables the skydiving suit for use across all maps",
+			"type": "checkbox",
+			"enabledByDefault": false,
+			"contentFolders": ["content/content_s3suit"]
+		},
+		{
+			"name": "Skydiving Suit (No Helmet) (ModSDKContent)",
+			"tooltip": "Enables the skydiving suit (No Helmet) for use across all maps",
+			"type": "checkbox",
+			"enabledByDefault": false,
+			"contentFolders": ["content/content_s3suit"]
+		},
+		{
+			"name": "Ashen Suit (No Gloves) (ModSDKContent)",
+			"tooltip": "Enables the Ashen Suit (No Gloves) for use across all maps",
+			"type": "checkbox",
+			"enabledByDefault": false,
+			"contentFolders": ["content/content_s3suit"]
+		},
+		{
+			"name": "Classic Cut Long Coat (No Gloves) (ModSDKContent)",
+			"tooltip": "Enables the Classic Cut Long Coat (No Gloves) for use across all maps",
+			"type": "checkbox",
+			"enabledByDefault": false,
+			"contentFolders": ["content/content_s3suit"]
+		},
+		{
+			"name": "Number 6 Suit (No Gloves) (ModSDKContent)",
+			"tooltip": "Enables the Number 6 suit (No Gloves) for use across all maps",
+			"type": "checkbox",
+			"enabledByDefault": false,
+			"contentFolders": ["content/content_s3suit"]
+		},
+		{
+			"name": "Neon City Suit (No Gloves) (ModSDKContent)",
+			"tooltip": "Enables the Neon City suit (No Gloves) for use across all maps",
+			"type": "checkbox",
+			"enabledByDefault": false,
+			"contentFolders": ["content/content_s3suit"]
+		},
+		{
+			"name": "Black and White Tuxedo (No Gloves) (ModSDKContent)",
+			"tooltip": "Enables the Black and White Tuxedo (No Gloves) for use across all maps",
+			"type": "checkbox",
+			"enabledByDefault": false,
+			"contentFolders": ["content/content_s3suit"]
+		},
+		{
+			"name": "Subject 47 (ModSDKContent)",
+			"tooltip": "Enables the Subject 47 for use across all maps",
+			"type": "checkbox",
+			"enabledByDefault": false,
+			"contentFolders": ["content/content_s3suit"]
+		},
+		{
+			"name": "Guerilla Wetsuit (ModSDKContent)",
+			"tooltip": "Enables the Guerilla Wetsuit for use across all maps",
+			"type": "checkbox",
+			"enabledByDefault": false,
+			"contentFolders": ["content/content_s3suit", "content/content_guerillawetsuit"]
+		}
+	],
+	"updateCheck": "https://raw.githubusercontent.com/piepieonline/h3-custom-suit-loader/main/version.json"
+}

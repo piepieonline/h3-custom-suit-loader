@@ -1,0 +1,144 @@
+{
+    "tempHash": "00097AA87B144150",
+    "tbluHash": "00E738E7CF7A35E1",
+    "patch": [
+        {
+            "AddEntity": [
+                "feedc19daf781a2a",
+                {
+                    "parent": "feed6f0993121b38",
+                    "name": "CUSTOM_CHAR_Hero_Matrix",
+                    "factory": "[modules:/zglobaloutfitkit.class].pc_entitytype",
+                    "blueprint": "[modules:/zglobaloutfitkit.class].pc_entityblueprint",
+                    "properties": {
+                        "m_eActorType": {
+                            "type": "EActorType",
+                            "value": "eAT_Hitman"
+                        },
+                        "m_eSoundFootwearType": {
+                            "type": "EHM5SoundFootwearType",
+                            "value": "EFWT_BOOTS"
+                        },
+                        "m_sId": {
+                            "type": "ZGuid",
+                            "value": "<REPO_ID>"
+                        },
+                        "m_bCanCallForHelp": {
+                            "type": "bool",
+                            "value": true
+                        },
+                        "m_sCommonName": {
+                            "type": "ZString",
+                            "value": "<COMMON_NAME>"
+                        },
+                        "m_sTitle": {
+                            "type": "ZString",
+                            "value": "<SUIT_NAME>"
+                        },
+                        "m_eOutfitAICategory": {
+                            "type": "EOutfitAICategory",
+                            "value": "OAC_47STARTCLASSY"
+                        },
+                        "m_rNameTextResource": {
+                            "type": "ZRuntimeResourceID",
+                            "value": {
+                                "resource": "[assembly:/localization/hitman6/conversations/ui/pro/online/repository/outfits_hero_s3.sweetmenutext?/char_global_hero_wrath_m_pro211198_name_e57564ba-d3e4-455b-bc1b-d0b64352c0d3.sweetline].pc_sweetline",
+                                "flag": "5F"
+                            }
+                        },
+                        "m_rDescriptionTextResource": {
+                            "type": "ZRuntimeResourceID",
+                            "value": {
+                                "resource": "[assembly:/localization/hitman6/conversations/ui/pro/online/repository/outfits_hero_s3.sweetmenutext?/char_global_hero_wrath_m_pro211198_desc_e57564ba-d3e4-455b-bc1b-d0b64352c0d3.sweetline].pc_sweetline",
+                                "flag": "5F"
+                            }
+                        },
+                        "m_bHeroDisguiseAvailable": {
+                            "type": "bool",
+                            "value": true
+                        },
+                        "m_bIsHitmanSuit": {
+                            "type": "bool",
+                            "value": true
+                        },
+                        "m_aCharSets": {
+                            "type": "TArray<SEntityTemplateReference>",
+                            "value": [
+                                "feedd758149b98b4"
+                            ],
+                            "postInit": true
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "AddEntity": [
+                "feedd758149b98b4",
+                {
+                    "parent": "feedc19daf781a2a",
+                    "name": "<CHARSET_NAME>",
+                    "factory": "<CHARSET_TEMP_HASH>",
+                    "blueprint": "<CHARSET_TBLU_HASH>"
+                }
+            ]
+        },
+        {
+            "AddEntity": [
+                "feed9aa9eb6b828e",
+                {
+                    "parent": "feedc19daf781a2a",
+                    "name": "Keyword_FOLEY_VR_OUTFIT_NOGLOVES",
+                    "factory": "[assembly:/_pro/design/gamecore/keywords/keywordsound.template?/keyword_foley_vr_outfit_nogloves.entitytemplate].pc_entitytype",
+                    "blueprint": "[assembly:/_pro/design/gamecore/keywords/keywordsound.template?/keyword_foley_vr_outfit_nogloves.entitytemplate].pc_entityblueprint",
+                    "properties": {
+                        "m_rHolder": {
+                            "type": "SEntityTemplateReference",
+                            "value": "feedc19daf781a2a",
+                            "postInit": true
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "AddEntity": [
+                "feedc99ee4f86cb8",
+                {
+                    "parent": "feedc19daf781a2a",
+                    "name": "Prof_Agent47",
+                    "factory": "[assembly:/_pro/design/actor/profession.template?/prof_agent47.entitytemplate].pc_entitytype",
+                    "blueprint": "[assembly:/_pro/design/actor/profession.template?/prof_agent47.entitytemplate].pc_entityblueprint",
+                    "properties": {
+                        "m_aHolders": {
+                            "type": "TArray<SEntityTemplateReference>",
+                            "value": [
+                                "feedc19daf781a2a"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "AddEntity": [
+                "feed70b46e6a52a4",
+                {
+                    "parent": "feedc19daf781a2a",
+                    "name": "Keyword_Prof_Class_Default",
+                    "factory": "007A51A2AFEC0D1A",
+                    "blueprint": "00B0282A41C1CF2E",
+                    "properties": {
+                        "m_aHolders": {
+                            "type": "TArray<SEntityTemplateReference>",
+                            "value": [
+                                "feedc19daf781a2a"
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    ],
+    "patchVersion": 6
+}

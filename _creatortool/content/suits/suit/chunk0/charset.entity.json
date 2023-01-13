@@ -1,0 +1,104 @@
+{
+    "tempHash": "006F86A0E398F5CB",
+    "tbluHash": "00C70C3B9EF9B4A3",
+    "rootEntity": "ef8db5ec3156cd7a",
+    "entities": {
+        "e8a105a0a46100a2": {
+            "parent": "ef8db5ec3156cd7a",
+            "name": "HeroA",
+            "factory": "[modules:/zcharsetcharactertype.class].pc_entitytype",
+            "blueprint": "[modules:/zcharsetcharactertype.class].pc_entityblueprint",
+            "properties": {
+                "m_aVariations": {
+                    "type": "TArray<SEntityTemplateReference>",
+                    "value": [
+                        "519a326a9d2ac7d6"
+                    ],
+                    "postInit": true
+                }
+            }
+        },
+        "519a326a9d2ac7d6": {
+            "parent": "e8a105a0a46100a2",
+            "name": "Var0",
+            "factory": "[modules:/zoutfitvariation.class].pc_entitytype",
+            "blueprint": "[modules:/zoutfitvariation.class].pc_entityblueprint",
+            "properties": {
+                "m_Outfit": {
+                    "type": "ZRuntimeResourceID",
+                    "value": {
+                        "resource": "<OUTFIT_ENTITY_TEMP_HASH>",
+                        "flag": "9F"
+                    }
+                }
+            }
+        },
+        "5018093e06b1b66c": {
+            "parent": "ef8db5ec3156cd7a",
+            "name": "Actor",
+            "factory": "[modules:/zcharsetcharactertype.class].pc_entitytype",
+            "blueprint": "[modules:/zcharsetcharactertype.class].pc_entityblueprint",
+            "properties": {
+                "m_aVariations": {
+                    "type": "TArray<SEntityTemplateReference>",
+                    "value": [
+                        "34a53b5443114a09"
+                    ],
+                    "postInit": true
+                }
+            }
+        },
+        "bbf59b00d317c320": {
+            "parent": "d78b28c9f1e356e3",
+            "name": "Var0",
+            "factory": "[modules:/zoutfitvariation.class].pc_entitytype",
+            "blueprint": "[modules:/zoutfitvariation.class].pc_entityblueprint"
+        },
+        "d78b28c9f1e356e3": {
+            "parent": "ef8db5ec3156cd7a",
+            "name": "Nude",
+            "factory": "[modules:/zcharsetcharactertype.class].pc_entitytype",
+            "blueprint": "[modules:/zcharsetcharactertype.class].pc_entityblueprint",
+            "properties": {
+                "m_aVariations": {
+                    "type": "TArray<SEntityTemplateReference>",
+                    "value": [
+                        "bbf59b00d317c320"
+                    ]
+                }
+            }
+        },
+        "34a53b5443114a09": {
+            "parent": "5018093e06b1b66c",
+            "name": "0",
+            "factory": "[modules:/zoutfitvariation.class].pc_entitytype",
+            "blueprint": "[modules:/zoutfitvariation.class].pc_entityblueprint"
+        },
+        "ef8db5ec3156cd7a": {
+            "parent": null,
+            "name": "CHARSET_Agent47_<SAFE_SUIT_NAME>",
+            "factory": "004470A9E6A7722D",
+            "blueprint": "00E21A11EC782D9E",
+            "properties": {
+                "m_aCharacters": {
+                    "type": "TArray<SEntityTemplateReference>",
+                    "value": [
+                        "5018093e06b1b66c",
+                        "d78b28c9f1e356e3",
+                        "e8a105a0a46100a2"
+                    ]
+                }
+            }
+        }
+    },
+    "propertyOverrides": [],
+    "overrideDeletes": [],
+    "pinConnectionOverrides": [],
+    "pinConnectionOverrideDeletes": [],
+    "externalScenes": [],
+    "subType": "template",
+    "quickEntityVersion": 3.1,
+    "extraFactoryDependencies": [],
+    "extraBlueprintDependencies": [],
+    "comments": []
+}
