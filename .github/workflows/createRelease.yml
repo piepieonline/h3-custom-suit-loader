@@ -15,9 +15,8 @@ jobs:
       with:
         type: 'zip'
         filename: 'CustomSuitLoader.zip'
-        exclusions: '*.git* _*'
+        exclusions: '*.git* _*/* _nexus _creatortool'
     - name: Upload Release
       uses: ncipollo/release-action@v1.12.0
       with:
         artifacts: "CustomSuitLoader.zip"
-        token: ${{ secrets.GITHUB_TOKEN }}
