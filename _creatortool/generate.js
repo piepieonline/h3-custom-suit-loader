@@ -22,7 +22,7 @@ export const generate = () => {
     const suitRepoId = window.e_repoId.value;
     const suitEntityHash = window.e_suitEntityHash.value;
 
-    if(
+    if (
         !modName ||
         !author ||
         !suitName ||
