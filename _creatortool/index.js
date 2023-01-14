@@ -8,6 +8,8 @@ function loadInitial() {
     window.e_suitName = document.getElementById('suitname');
     window.e_suitDesc = document.getElementById('suitdesc');
     window.e_suitEntityHash = document.getElementById('suitentityhash');
+    window.e_suitFiles = document.getElementById('suitfiles');
+    window.e_selectedMainEntity = document.getElementById('selected-main-entity');
     window.e_suitImage = document.getElementById('suitimage');
 
     fetch('https://raw.githubusercontent.com/piepieonline/h3-custom-suit-loader/main/readme.md')

@@ -11,7 +11,7 @@ fetch('./content/sdk/deploySDK.ts')
     .then((response) => response.text())
     .then((data) => deploySDKScript = data);
 
-export const generate = () => {
+export const generate = async () => {
     // Direct from user
     const modName = window.e_modName.value;
     const author = window.e_author.value;
@@ -20,7 +20,11 @@ export const generate = () => {
     const suitImage = window.e_suitImage.files[0];
     const suitId = window.e_GUID.value;
     const suitRepoId = window.e_repoId.value;
-    const suitEntityHash = window.e_suitEntityHash.value;
+    const suitFiles = window.e_suitFiles.files;
+    const selectedMainEntity = window.e_selectedMainEntity.value;
+
+    console.log(suitFiles);
+    console.log(selectedMainEntity);
 
     if (
         !modName ||
@@ -30,10 +34,10 @@ export const generate = () => {
         !suitImage ||
         !suitId ||
         !suitRepoId ||
-        !suitEntityHash
+        suitFiles.length == 0 ||
+        !selectedMainEntity
     ) {
-        console.log('Missing element');
-        return;
+        throw 'Missing required element';
     }
 
     // Computed values
@@ -87,9 +91,12 @@ export const generate = () => {
     };
     suitFolder.file('repooverrides.repository.json', JSON.stringify(repoOverrides, null, 2));
 
+    const suitEntityHashTemp = createIOString(`${commonName}_${safeAuthor}_TEMP`);
+    const suitEntityHashTblu = createIOString(`${commonName}_${safeAuthor}_TBLU`);
+
     //     CharSet
     const charSetString = JSON.stringify(charsetTemplate)
-        .replace('<OUTFIT_ENTITY_TEMP_HASH>', suitEntityHash)
+        .replace('<OUTFIT_ENTITY_TEMP_HASH>', suitEntityHashTemp)
         .replace('<SAFE_SUIT_NAME>', safeSuitName)
         ;
     const charSet = JSON.parse(charSetString);
@@ -114,13 +121,31 @@ export const generate = () => {
         ;
     suitFolder.file('globaldata.entity.patch.json', globalDataString);
 
+    for(let i = 0; i < suitFiles.length; i++)
+    {
+        const fileName = suitFiles[i].name;
+        let fileJson = await parseEntity(suitFiles[i]);
+        if(fileName == selectedMainEntity)
+        {
+            let fileObj = JSON.parse(fileJson);
+            
+            if(!fileObj.tempHash || !fileObj.tbluHash) throw 'Invalid entity file selected!';
+
+            fileObj.tempHash = suitEntityHashTemp;
+            fileObj.tbluHash = suitEntityHashTblu;
+
+            fileJson = JSON.stringify(fileObj, null, 2);
+        }
+        suitFolder.file(fileName, fileJson);
+    }
+
     zip.generateAsync({ type: "blob" }).then(function (content) {
         saveAs(content, modName + '.zip');
     });
 }
 
 function makeSafe(value) {
-    return value.trim().replace(/[\s:]/g, '_').replace(/[\(\)]/g, '').toLowerCase()
+    return value.trim().replace(/[\s:]/g, '_').replace(/[\(\)-]/g, '').toLowerCase()
 }
 
 // Nicked from https://stackoverflow.com/questions/14733374/how-to-generate-an-md5-file-hash-in-javascript-node-js
@@ -132,4 +157,23 @@ function createIOString(name) {
 
 function genRandHex() {
     return "feed" + [...Array(12)].map(() => Math.floor(Math.random() * 16).toString(16)).join("");
-} 
+}
+
+function parseEntity(file) {
+    // Always return a Promise
+    return new Promise((resolve, reject) => {
+      let content = '';
+      const reader = new FileReader();
+      // Wait till complete
+      reader.onloadend = function(e) {
+        content = e.target.result;
+        const result = content;
+        resolve(result);
+      };
+      // Make sure to handle error states
+      reader.onerror = function(e) {
+        reject(e);
+      };
+      reader.readAsText(file);
+    });
+  }

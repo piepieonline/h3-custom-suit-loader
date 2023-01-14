@@ -1,4 +1,4 @@
-// Piepieonline's standard SMF ModSDK deployment script v1.1 
+// Piepieonline's standard SMF ModSDK deployment script v1.2 
 
 import fs from "fs"
 import path from "path"
@@ -31,7 +31,7 @@ export const afterDeploy: ModScript["afterDeploy"] = async function (context, ap
   }
   
   const modSDKContentMagicString = '(ModSDKContent)';
-  context.config.modOptions[modID].forEach(selectedOption => {
+  context.config.modOptions[modID]?.forEach(selectedOption => {
     if(selectedOption.endsWith(modSDKContentMagicString))
     {
       let selectedOptionPath = 'content_' + selectedOption.replace(modSDKContentMagicString, '').trim().replace(/[\s:]/g, '_').replace(/[\(\)]/g, '').toLowerCase();
