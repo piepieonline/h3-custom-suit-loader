@@ -78,17 +78,23 @@
 		},
 		{
 			"name": "Subject 47 (ModSDKContent)",
-			"tooltip": "Enables the Subject 47 for use across all maps",
+			"tooltip": "Enables the Subject 47 outfit for use across all maps",
 			"type": "checkbox",
 			"enabledByDefault": false,
 			"contentFolders": ["content/content_s3suit"]
 		},
 		{
-			"name": "Guerilla Wetsuit (ModSDKContent)",
-			"tooltip": "Enables the Guerilla Wetsuit for use across all maps",
+			"name": "Wounded (Freelancer) (ModSDKContent)",
+			"tooltip": "Enables the wounded outfit from Freelancer for use across all maps",
 			"type": "checkbox",
 			"enabledByDefault": false,
-			"contentFolders": ["content/content_s3suit", "content/content_guerillawetsuit"]
+			"contentFolders": ["content/content_s3suit", "content/content_wounded_freelancer"],
+			"localisation": {
+				"english": {
+					"CHAR_EVERGREEN_HERO_WOUNDED_M_NAME_E1D1FFA6-DECA-445A-8E8C-DB74B0856CEE": "Wounded (Freelancer)",
+					"CHAR_EVERGREEN_HERO_WOUNDED_M_DESC_E1D1FFA6-DECA-445A-8E8C-DB74B0856CEE": "Better luck next time, 47"
+				}
+			}
 		}
 	],
 	"updateCheck": "https://raw.githubusercontent.com/piepieonline/h3-custom-suit-loader/main/version.json"
