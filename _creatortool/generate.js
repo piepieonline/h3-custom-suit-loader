@@ -11,6 +11,18 @@ fetch('./content/sdk/deploySDK.ts')
     .then((response) => response.text())
     .then((data) => deploySDKScript = data);
 
+const languageList = [
+    "english",
+    "french",
+    "italian",
+    "german",
+    "spanish",
+    "russian",
+    "chineseSimplified",
+    "chineseTraditional",
+    "japanese"
+]
+
 export const generate = async () => {
     // Direct from user
     const modName = window.e_modName.value;
@@ -59,8 +71,13 @@ export const generate = async () => {
     manifest.id = safeAuthor + '.' + safeModName;
     manifest.name = modName;
     manifest.authors = [author];
-    manifest.localisation.english[`UI_${tokenId}_NAME`] = suitName;
-    manifest.localisation.english[`UI_${tokenId}_DESC`] = suitDesc;
+
+    languageList.forEach(language => {
+        manifest.localisation[language] = {};
+        manifest.localisation[language][`UI_${tokenId}_NAME`] = suitName;
+        manifest.localisation[language][`UI_${tokenId}_DESC`] = suitDesc;
+    });
+    
     manifest.contentFolders = [`suits/${safeSuitName}`]
     baseFolder.file('manifest.json', JSON.stringify(manifest, null, 2))
 
